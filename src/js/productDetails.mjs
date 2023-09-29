@@ -22,9 +22,10 @@ function addProductToCart(product) {
 // add to cart button event handler
 async function addToCartHandler(e) {
     const product = await findProductById(e.target.dataset.id);
-    console.log(product);
+    // console.log(product);
     addProductToCart(product);
     const productId = getParam();
+    window.location.reload();
     //console.log(productId);
     //console.log(findProductById(productId));
   }
