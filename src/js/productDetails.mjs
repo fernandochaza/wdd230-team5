@@ -37,22 +37,22 @@ async function addToCartHandler(e) {
 
 //fill in the details for the current product in the HTML.
 function renderProductDetails(product) {
-  let title = document.querySelector('#productName');
-  let h2 = document.querySelector('#productNameWithoutBrand');
-  let img = document.querySelector('#productImage');
-  let price = document.querySelector('#productFinalPrice');
-  let color = document.querySelector('#productColorName');
-  let prodDetails = document.querySelector('#productDescriptionHtmlSimple');
-  let prodId = document.querySelector('#addToCart');
+  let title = document.querySelector("#productName");
+  let h2 = document.querySelector("#productNameWithoutBrand");
+  let img = document.querySelector("#productImage");
+  let price = document.querySelector("#productFinalPrice");
+  let color = document.querySelector("#productColorName");
+  let prodDetails = document.querySelector("#productDescriptionHtmlSimple");
+  let prodId = document.querySelector("#addToCart");
 
   title.textContent = product.Name;
   h2.textContent = product.NameWithoutBrand;
-  img.setAttribute('src',product.Image);
-  img.setAttribute('alt',product.Name);
+  img.setAttribute("src",product.Image);
+  img.setAttribute("alt",product.Name);
   price.textContent = product.FinalPrice;
   color.textContent = product.Colors[0].ColorName;
   prodDetails = product.DescriptionHtmlSimple;
-  prodId.setAttribute('data-id', product.Id);
+  prodId.setAttribute("data-id", product.Id);
 
 }
 
