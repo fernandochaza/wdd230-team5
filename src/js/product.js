@@ -1,28 +1,13 @@
 import productDetails from "./productDetails.mjs";
-import { getParam } from "./utils.mjs";
+import cartItemSuperscript from "./superscript";
+import { getParam, loadHeaderFooter } from "./utils.mjs";
 
 const productId = getParam("product");
 productDetails(productId);
 
-// This should add products to cart
-// function addProductToCart(product) {
+async function main() {
+  await loadHeaderFooter();
+  cartItemSuperscript();
+}
 
-//   const cartItems = getLocalStorage("so-cart") || [];
-//   cartItems.push(product);
-
-//   setLocalStorage("so-cart", cartItems);
-
-// }
-// add to cart button event handler
-// async function addToCartHandler(e) {
-//   const product = await findProductById(e.target.dataset.id);
-//   addProductToCart(product);
-//   const productId = getParam();
-//   //console.log(productId);
-//   //console.log(findProductById(productId));
-// }
-
-// // add listener to Add to Cart button
-// document
-//   .getElementById("addToCart")
-//   .addEventListener("click", addToCartHandler);
+main();

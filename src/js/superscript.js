@@ -3,10 +3,12 @@ import { getLocalStorage } from "./utils.mjs";
 function cartItemSuperscript() {
   let cartItems = getLocalStorage("so-cart");
 
-  if (cartItems.length > 0) {
+  if (cartItems && cartItems.length > 0) {
     let superscriptContainer = document.createElement("span");
-    document.querySelector(".cart").append(superscriptContainer);
     superscriptContainer.textContent = cartItems.length;
+
+    let cartDiv = document.getElementById("main-cart");
+    cartDiv.append(superscriptContainer);
   }
 }
 

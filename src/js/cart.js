@@ -1,4 +1,5 @@
-import { getLocalStorage } from "./utils.mjs";
+import cartItemSuperscript from "./superscript";
+import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
@@ -31,3 +32,10 @@ function cartItemTemplate(item) {
 }
 
 renderCartContents();
+
+async function main() {
+  await loadHeaderFooter();
+  cartItemSuperscript();
+}
+
+main();
