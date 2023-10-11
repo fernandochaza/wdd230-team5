@@ -1,8 +1,5 @@
-import productList from "./productList.mjs";
-import cartItemSuperscript from "./superscript.js";
+import cartItemSuperscript from "./superscript";
 import { loadHeaderFooter } from "./utils.mjs";
-
-productList("tents", ".product-list");
 
 async function main() {
   await loadHeaderFooter();

@@ -23,9 +23,53 @@ export function setClick(selector, callback) {
 }
 
 //Getting the params throught quertyString
-export function getParam(param="product") {
+export function getParam(param = "product") {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const getParam = urlParams.get(param);
-  return getParam;
+  const paramVariable = urlParams.get(param);
+  return paramVariable;
+}
+
+async function renderWithTemplate(
+  templateFn,
+  parentElement,
+  data,
+  callback,
+  position = "afterbegin",
+  clear = true
+) {
+  // get template using function...no need to loop this time.
+  if (clear) {
+    parentElement.innerHTML = "";
+  }
+
+  let template = await templateFn();
+
+  parentElement.insertAdjacentHTML(position, template);
+
+  if (callback) {
+    callback(data);
+  }
+}
+
+function loadTemplate(path) {
+  // this is called currying and can be very helpful.
+  return async function () {
+      const res = await fetch(path);
+      if (res.ok) {
+      const html = await res.text();
+      return html;
+      }
+  };
+} 
+
+export async function loadHeaderFooter() {
+  const headerTemplateFn = loadTemplate("/partials/header.html");
+  const footerTemplateFn = loadTemplate("/partials/footer.html");
+
+  const headerEl = document.getElementById("main-header");
+  const footerEl = document.getElementById("main-footer");
+
+  await renderWithTemplate(headerTemplateFn, headerEl);
+  await renderWithTemplate(footerTemplateFn, footerEl);
 }
