@@ -10,4 +10,4 @@ function cartItemSuperscript() {
   }
 }
 
-cartItemSuperscript();
+export default cartItemSuperscript;
