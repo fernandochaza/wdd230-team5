@@ -233,3 +233,13 @@ div.cart span {
   right: -0.25rem;
   top: 0.5rem;
 }
+.x-button {
+  display: flex;
+  align-items: center;
+  position: relative;
+  right: 15rem;
+  color: red;
+  border: solid 1px;
+  margin: 5rem;
+  padding: 5px;
+}

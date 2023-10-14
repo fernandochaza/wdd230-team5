@@ -1,13 +1,20 @@
 import renderCartContents from "./shoppingCart.mjs";
 import cartItemSuperscript from "./superscript";
 import { loadHeaderFooter } from "./utils.mjs";
+import { removeCartItem } from "./removeItemFromCart.mjs";
 
-renderCartContents();
-
+main();
 async function main() {
   await loadHeaderFooter();
   cartItemSuperscript();
 }
 
-main();
+
+renderCartContents();
+removeCartItem();
+
+
+
+
+
 
