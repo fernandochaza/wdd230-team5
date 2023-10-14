@@ -9,12 +9,5 @@ async function main() {
   cartItemSuperscript();
 }
 
-
 renderCartContents();
 removeCartItem();
-
-
-
-
-
-
