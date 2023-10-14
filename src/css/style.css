@@ -239,7 +239,14 @@ div.cart span {
   position: relative;
   right: 15rem;
   color: red;
-  border: solid 1px;
+  border: solid 1px rgb(210, 192, 192);
   margin: 5rem;
   padding: 5px;
 }
+.x-button:hover {
+  background-color: black;
+  color: white;
+}
+.x-button:active {
+  color: black
+ }
