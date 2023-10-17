@@ -1,4 +1,4 @@
-import productDetails from "./productDEtails.mjs";
+import productDetails from "./productDetail.mjs";
 import cartItemSuperscript from "./superscript";
 import { getParam, loadHeaderFooter } from "./utils.mjs";
 
