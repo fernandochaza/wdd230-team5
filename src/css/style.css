@@ -250,3 +250,6 @@ div.cart span {
 .x-button:active {
   color: black;
 }
+.hide {
+  display: none;
+}
