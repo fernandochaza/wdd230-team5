@@ -30,7 +30,7 @@ export function getParam(param = "product") {
   return paramVariable;
 }
 
-async function renderWithTemplate(
+export async function renderWithTemplate(
   templateFn,
   parentElement,
   data,
@@ -51,6 +51,18 @@ async function renderWithTemplate(
     callback(data);
   }
 }
+
+export function renderListWithTemplate(
+  templateFn,
+  parentElement,
+  list,
+  position = "afterbegin",
+  clear = true
+) {
+  const htmlString = list.map(templateFn);
+  parentElement.insertAdjacentHTML(position, htmlString.join(""));
+}
+
 
 function loadTemplate(path) {
   // this is called currying and can be very helpful.

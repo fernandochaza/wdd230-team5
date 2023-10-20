@@ -16,7 +16,7 @@ export function displayCartTotal () {
             document.querySelector('.hide').style.display = "inline-block";
             
             let span = document.createElement('span');
-            span.textContent = `$${total}`;
+            span.textContent = `$${total.toFixed(2)}`;
             document.querySelector('.cart-total').append(span);
         }
 
