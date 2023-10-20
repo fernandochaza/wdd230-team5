@@ -7,12 +7,11 @@ import { doc } from "prettier";
 // the entrypoint into our module and will make sure that everything happens in the right order. This function should be the default export.
 async function productDetails(productId) {
   const product = await findProductById(productId);
-  renderProductDetails(product);
 
+  renderProductDetails(product);
 }
 
 function addProductToCart(product) {
-  
     const cartItems = getLocalStorage("so-cart") || [];
     cartItems.push(product);
     setLocalStorage("so-cart", cartItems);
@@ -22,12 +21,10 @@ function addProductToCart(product) {
 // add to cart button event handler
 async function addToCartHandler(e) {
     const product = await findProductById(e.target.dataset.id);
-    // console.log(product);
+
     addProductToCart(product);
     const productId = getParam();
     window.location.reload();
-    //console.log(productId);
-    //console.log(findProductById(productId));
   }
   
   // add listener to Add to Cart button
@@ -47,7 +44,7 @@ function renderProductDetails(product) {
 
   title.textContent = product.Name;
   h2.textContent = product.NameWithoutBrand;
-  img.setAttribute("src",product.Image);
+  img.setAttribute("src",product.Images.PrimaryLarge);
   img.setAttribute("alt",product.Name);
   price.textContent = product.FinalPrice;
   color.textContent = product.Colors[0].ColorName;

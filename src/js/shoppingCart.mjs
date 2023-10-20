@@ -15,7 +15,7 @@ function cartItemTemplate(item, id) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
-      src="${item.Image}"
+      src="${item.Images.PrimarySmall}"
       alt="${item.Name}"
     />
   </a>
@@ -25,8 +25,10 @@ function cartItemTemplate(item, id) {
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: 1</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
+  
 </li>
-<span class="x-button" id="${id}">X</span>`;
+<span class="x-button" id="${id}">X</span>
+`;
 
   return newItem;
 }
