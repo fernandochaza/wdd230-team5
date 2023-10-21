@@ -6,7 +6,7 @@ function renderCartContents() {
   // Check if cartItems is defined and that the cart contains items
   // before displaying them
   if (cartItems && cartItems.length > 0) {
-    const htmlItems = cartItems.map((item) => cartItemTemplate(item, item.Id))
+    const htmlItems = cartItems.map((item) => cartItemTemplate(item, item.Id));
     document.querySelector(".product-list").innerHTML = htmlItems.join("");
   }
 }
@@ -15,7 +15,7 @@ function cartItemTemplate(item, id) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
-      src="${item.Images.PrimarySmall}"
+      src="${item.Image}"
       alt="${item.Name}"
     />
   </a>
@@ -32,6 +32,5 @@ function cartItemTemplate(item, id) {
 
   return newItem;
 }
-
 
 export default renderCartContents;
