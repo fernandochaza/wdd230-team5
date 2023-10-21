@@ -2,13 +2,14 @@ import { getData } from "./productData.mjs";
 import { renderListWithTemplate } from "./utils.mjs";
 
 export default async function productList(category, selector) {
-  
   const title = document.querySelector(selector);
   const products = await getData(category);
 
   renderListWithTemplate(productCardTemplate, title, products);
-  document.querySelector('.category-title').innerHTML = `: ${category.charAt(0).toUpperCase() + category.slice(1)}`;
-  
+  document.querySelector(".category-title").innerHTML = `: ${
+    category.charAt(0).toUpperCase() + category.slice(1)
+  }`;
+
   function productCardTemplate(product) {
     const productTemplate = `
       <li class="product-card">
@@ -25,4 +26,3 @@ export default async function productList(category, selector) {
     return productTemplate;
   }
 }
-
