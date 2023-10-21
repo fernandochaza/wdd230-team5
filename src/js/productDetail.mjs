@@ -12,31 +12,45 @@ async function productDetails(productId) {
 }
 
 function addProductToCart(product) {
-    const cartItems = getLocalStorage("so-cart") || [];
-    cartItems.push(product);
-    setLocalStorage("so-cart", cartItems);
-  
+  const cartItems = getLocalStorage("so-cart") || [];
+  cartItems.push(product);
+  setLocalStorage("so-cart", cartItems);
 }
 
 // add to cart button event handler
 async function addToCartHandler(e) {
-    const product = await findProductById(e.target.dataset.id);
+  const product = await findProductById(e.target.dataset.id);
 
-    addProductToCart(product);
-    const productId = getParam();
-    window.location.reload();
-  }
-  
-  // add listener to Add to Cart button
-  document
-    .getElementById("addToCart")
-    .addEventListener("click", addToCartHandler);
+  addProductToCart(product);
+  const productId = getParam();
+  window.location.reload();
+}
+
+// add listener to Add to Cart button
+document
+  .getElementById("addToCart")
+  .addEventListener("click", addToCartHandler);
 
 //fill in the details for the current product in the HTML.
 function renderProductDetails(product) {
+  let USDollar = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
+  const retailPrice = product.SuggestedRetailPrice;
+  const finalPrice = product.FinalPrice;
+
   let title = document.querySelector("#productName");
   let h2 = document.querySelector("#productNameWithoutBrand");
   let img = document.querySelector("#productImage");
+
+  if (finalPrice < retailPrice) {
+    const retailPriceContainer = document.querySelector("#productPrice");
+    retailPriceContainer.textContent = `${USDollar.format(retailPrice)}`;
+    retailPriceContainer.style.textDecoration = "line-through";
+  }
+
   let price = document.querySelector("#productFinalPrice");
   let color = document.querySelector("#productColorName");
   let prodDetails = document.querySelector("#productDescriptionHtmlSimple");
@@ -44,13 +58,12 @@ function renderProductDetails(product) {
 
   title.textContent = product.Name;
   h2.textContent = product.NameWithoutBrand;
-  img.setAttribute("src",product.Images.PrimaryLarge);
-  img.setAttribute("alt",product.Name);
-  price.textContent = product.FinalPrice;
+  img.setAttribute("src", product.Images.PrimaryLarge);
+  img.setAttribute("alt", product.Name);
+  price.textContent = `${USDollar.format(product.FinalPrice)}`;
   color.textContent = product.Colors[0].ColorName;
-  prodDetails = product.DescriptionHtmlSimple;
+  prodDetails.innerHTML = product.DescriptionHtmlSimple;
   prodId.setAttribute("data-id", product.Id);
-
 }
 
 export default productDetails;

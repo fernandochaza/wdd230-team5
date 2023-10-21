@@ -5,7 +5,6 @@ export default async function productList(category, selector) {
   
   const title = document.querySelector(selector);
   const products = await getData(category);
-  console.log(products);
 
   renderListWithTemplate(productCardTemplate, title, products);
   document.querySelector('.category-title').innerHTML = `: ${category.charAt(0).toUpperCase() + category.slice(1)}`;
