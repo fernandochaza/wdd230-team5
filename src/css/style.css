@@ -253,3 +253,23 @@ div.cart span {
 .hide {
   display: none;
 }
+.show {
+  display: inline-block;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  list-style-type: none;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.product-grid li {
+  display: flex;
+  flex-direction: column;
+}
+.product-grid li img {
+  width: 80px;
+}
+.product-grid li h2 {
+  font-size: 1rem;
+}

@@ -13,7 +13,8 @@ export function displayCartTotal () {
                 total += price;
             });
 
-            document.querySelector('.hide').style.display = "inline-block";
+            const cartFooter = document.querySelector('#cart-footer');
+            cartFooter.classList.replace('hide', 'show');
             
             let span = document.createElement('span');
             span.textContent = `$${total}`;
