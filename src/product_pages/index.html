@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="../css/style.css" />
 
-    <script src="../js/product.js" type="module"></script>
+    <script async src="../js/product.js" type="module"></script>
     <script src="../js/superscript.js" type="module"></script>
     <script src="../js/alert.mjs" type="module"></script>
   </head>
@@ -21,17 +21,12 @@
     <main class="divider">
       <section class="product-detail">
         <h3 id="productName"></h3>
-
         <h2 class="divider" id="productNameWithoutBrand"></h2>
-
         <img id="productImage" class="divider" src="" alt="" />
-
+        <p class="product-card__retail-price" id="productPrice"></p>
         <p class="product-card__price" id="productFinalPrice"></p>
-
         <p class="product__color" id="productColorName"></p>
-
         <p class="product__description" id="productDescriptionHtmlSimple"></p>
-
         <div class="product-detail__add">
           <button id="addToCart" data-id="">Add to Cart</button>
         </div>

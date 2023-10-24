@@ -17,7 +17,7 @@ export function displayCartTotal () {
             cartFooter.classList.replace('hide', 'show');
             
             let span = document.createElement('span');
-            span.textContent = `$${total}`;
+            span.textContent = `$${total.toFixed(2)}`;
             document.querySelector('.cart-total').append(span);
         }
 

@@ -1,14 +1,21 @@
 import { getData } from "./productData.mjs";
+import { renderListWithTemplate } from "./utils.mjs";
 
-async function productList(category, selector) {
-  const products = await getData();
+export default async function productList(category, selector) {
+  const title = document.querySelector(selector);
+  const products = await getData(category);
+
+  renderListWithTemplate(productCardTemplate, title, products);
+  document.querySelector(".category-title").innerHTML = `: ${
+    category.charAt(0).toUpperCase() + category.slice(1)
+  }`;
 
   function productCardTemplate(product) {
     const productTemplate = `
       <li class="product-card">
-      <a href="product_pages/index.html?product=${product.Id}">
+      <a href="/product_pages/index.html?product=${product.Id}">
       <img
-        src=${product.Image}
+        src=${product.Images.PrimaryMedium}
         alt=${product.NameWithoutBrand}
       />
       <h3 class="card__brand">${product.Brand.Name}</h3>
@@ -18,16 +25,4 @@ async function productList(category, selector) {
     `;
     return productTemplate;
   }
-
-  function renderProduct(template) {
-    const listContainer = document.querySelector(selector);
-    listContainer.innerHTML += template;
-  }
-
-  products.forEach((product) => {
-    const productTemplate = productCardTemplate(product);
-    renderProduct(productTemplate);
-  });
 }
-
-export default productList;

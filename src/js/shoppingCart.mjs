@@ -6,7 +6,7 @@ function renderCartContents() {
   // Check if cartItems is defined and that the cart contains items
   // before displaying them
   if (cartItems && cartItems.length > 0) {
-    const htmlItems = cartItems.map((item) => cartItemTemplate(item, item.Id))
+    const htmlItems = cartItems.map((item) => cartItemTemplate(item, item.Id));
     document.querySelector(".product-list").innerHTML = htmlItems.join("");
   }
 }
@@ -25,11 +25,12 @@ function cartItemTemplate(item, id) {
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: 1</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
+  
 </li>
-<span class="x-button" id="${id}">X</span>`;
+<span class="x-button" id="${id}">X</span>
+`;
 
   return newItem;
 }
-
 
 export default renderCartContents;
