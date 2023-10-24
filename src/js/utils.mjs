@@ -75,6 +75,12 @@ function loadTemplate(path) {
   };
 } 
 
+export function checkEmptyArray(array) {
+  if (array.length === 0) {
+    throw new Error ('We\'re sorry, this product is not yet available. Please try again later!');
+  }
+}
+
 export async function loadHeaderFooter() {
   const headerTemplateFn = loadTemplate("/partials/header.html");
   const footerTemplateFn = loadTemplate("/partials/footer.html");
