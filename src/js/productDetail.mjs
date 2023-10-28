@@ -1,7 +1,7 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-import { findProductById } from "./productData.mjs";
+import { findProductById } from "./externalServices.mjs";
 import { getParam } from "./utils.mjs";
-import { doc } from "prettier";
+
 //responsible for all of the functionality needed to lookup data for a specific product and display it in HTML.
 
 // the entrypoint into our module and will make sure that everything happens in the right order. This function should be the default export.
