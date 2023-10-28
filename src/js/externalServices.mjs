@@ -8,17 +8,17 @@ async function convertToJson(res) {
   }
 }
 
-export async function getData(category) {
+export async function getProductsByCategory(category) {
   const URL = baseURL + `products/search/${category}`;
   const response = await fetch(URL);
   const data = await convertToJson(response);
-  
+
   return data.Result;
 }
 
 export async function findProductById(id) {
   const response = await fetch(baseURL + `product/${id}`);
   const product = await convertToJson(response);
-  
+
   return product.Result;
 }
