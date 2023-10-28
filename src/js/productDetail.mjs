@@ -1,4 +1,8 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import {
+  calculateDiscount,
+  getLocalStorage,
+  setLocalStorage,
+} from "./utils.mjs";
 import { findProductById } from "./externalServices.mjs";
 import { getParam } from "./utils.mjs";
 
@@ -48,7 +52,7 @@ function renderProductDetails(product) {
   if (finalPrice < retailPrice) {
     const retailPriceContainer = document.querySelector("#productPrice");
     retailPriceContainer.textContent = `${USDollar.format(retailPrice)}`;
-    retailPriceContainer.style.textDecoration = "line-through";
+    retailPriceContainer.classList.add("product-price--discounted");
   }
 
   let price = document.querySelector("#productFinalPrice");
@@ -56,7 +60,7 @@ function renderProductDetails(product) {
   let prodDetails = document.querySelector("#productDescriptionHtmlSimple");
   let prodId = document.querySelector("#addToCart");
 
-  title.textContent = product.Name;
+  title.textContent = product.Brand.Name;
   h2.textContent = product.NameWithoutBrand;
   img.setAttribute("src", product.Images.PrimaryLarge);
   img.setAttribute("alt", product.Name);

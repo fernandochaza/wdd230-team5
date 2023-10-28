@@ -139,11 +139,49 @@ button {
   margin: 0.25em;
   padding: 0.5em;
   border: 1px solid var(--light-grey);
+  border-radius: 4px;
   max-width: 250px;
+  position: relative;
 }
+
+.product-card__discount {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.25em;
+  font-size: var(--small-font);
+  border-radius: 0 3px 0 4px;
+}
+
+.product-card a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-card a img {
+  margin-top: 1rem;
+}
+
+.product-card__price {
+  margin: 0.5em 0;
+  font-size: var(--large-font);
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.product-card__price--discounted,
+.product-price--discounted {
+  text-decoration: line-through;
+  color: var(--light-grey);
+  margin: 0;
+  padding: .5em 0;
+}
+
 .product-card h2,
-.product-card h3,
-.product-card p {
+.product-card h3 {
   margin: 0.5em 0;
 }
 
@@ -162,8 +200,15 @@ button {
   margin: auto;
 }
 
+.product-detail h3,
+.product-detail h2 {
+  margin: 0;
+  padding: 0.5em 0;
+}
+
 .product-detail img {
   width: 100%;
+  padding: 1rem 0;
 }
 
 /* Start cart list card styles */
