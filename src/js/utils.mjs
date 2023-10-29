@@ -91,3 +91,8 @@ export async function loadHeaderFooter() {
   await renderWithTemplate(headerTemplateFn, headerEl);
   await renderWithTemplate(footerTemplateFn, footerEl);
 }
+
+export function calculateDiscount(listPrice, salePrice) {
+  const discount = Math.round(((listPrice - salePrice) / listPrice) * 100);
+  return discount;
+}
