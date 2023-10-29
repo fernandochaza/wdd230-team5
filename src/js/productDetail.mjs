@@ -1,10 +1,8 @@
 import {
-  calculateDiscount,
   getLocalStorage,
   setLocalStorage,
 } from "./utils.mjs";
 import { findProductById } from "./externalServices.mjs";
-import { getParam } from "./utils.mjs";
 
 //responsible for all of the functionality needed to lookup data for a specific product and display it in HTML.
 
@@ -26,17 +24,18 @@ async function addToCartHandler(e) {
   const product = await findProductById(e.target.dataset.id);
 
   addProductToCart(product);
-  const productId = getParam();
   window.location.reload();
 }
 
-// add listener to Add to Cart button
+// Add listener to Add to Cart button
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
 
-//fill in the details for the current product in the HTML.
+// Fill in the details for the current product in the HTML.
 function renderProductDetails(product) {
+
+  // Create a new instance of Intl.NumberFormat to format the price of the product.
   let USDollar = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -51,7 +50,10 @@ function renderProductDetails(product) {
 
   if (finalPrice < retailPrice) {
     const retailPriceContainer = document.querySelector("#productPrice");
+
+    // Use the format method to format the retail price and add it to the DOM.
     retailPriceContainer.textContent = `${USDollar.format(retailPrice)}`;
+
     retailPriceContainer.classList.add("product-price--discounted");
   }
 

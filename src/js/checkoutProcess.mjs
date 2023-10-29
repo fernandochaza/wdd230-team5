@@ -73,19 +73,15 @@ const checkoutProcess = {
   },
 
   prepareData(form) {
-    const formData = new FormData(form);
-
-    const {
-      fname,
-      lname,
-      street,
-      city,
-      state,
-      zip,
-      cardNumber,
-      expiration,
-      code,
-    } = Object.fromEntries(formData.entries());
+    const fname = form.fname.value;
+    const lname = form.lname.value;
+    const street = form.street.value;
+    const city = form.city.value;
+    const state = form.state.value;
+    const zip = form.zip.value;
+    const cardNumber = form.cardNumber.value;
+    const expiration = form.expiration.value;
+    const code = form.code.value;
 
     const data = {
       orderDate: new Date().toISOString(),
@@ -116,8 +112,12 @@ const checkoutProcess = {
       body: JSON.stringify(data),
     };
 
-    const response = await fetch(baseURL + "checkout", options);
-    const order = await response.json();
+    try {
+      const response = await fetch(baseURL + "checkout", options);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
   },
 };
 
