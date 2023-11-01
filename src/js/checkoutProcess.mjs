@@ -1,4 +1,5 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { convertToJson } from "./externalServices.mjs";
 
 const baseURL = import.meta.env.VITE_SERVER_URL;
 
@@ -99,7 +100,7 @@ const checkoutProcess = {
       shipping: this.shipping,
       tax: this.tax.toString(),
     };
-
+    console.log(data);
     return data;
   },
 
@@ -114,7 +115,10 @@ const checkoutProcess = {
 
     try {
       const response = await fetch(baseURL + "checkout", options);
-      console.log(response);
+      const jsonData = await convertToJson(response);
+      console.log(jsonData);
+      setLocalStorage("so-cart", []);
+      location.assign("/checkout/success.html");
     } catch (err) {
       console.log(err);
     }
