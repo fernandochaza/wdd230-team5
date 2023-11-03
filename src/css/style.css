@@ -177,7 +177,7 @@ button {
   text-decoration: line-through;
   color: var(--light-grey);
   margin: 0;
-  padding: .5em 0;
+  padding: 0.5em 0;
 }
 
 .product-card h2,
@@ -334,4 +334,9 @@ div.cart span {
 }
 .product-grid li h2 {
   font-size: 1rem;
+}
+.alert {
+  background-color: var(--primary-color);
+  color: white;
+  width: 25%;
 }

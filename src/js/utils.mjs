@@ -96,3 +96,20 @@ export function calculateDiscount(listPrice, salePrice) {
   const discount = Math.round(((listPrice - salePrice) / listPrice) * 100);
   return discount;
 }
+
+export function alertMessage(message, scroll=true) {
+  let alertDiv = document.createElement('div');
+  alertDiv.classList.add('alert');
+  alertDiv.innerHTML = `<span>${message} </span><span>X</span></p>`
+  alertDiv.addEventListener('click', function(e) {
+    if (e.target.innerText = 'X') {
+      main.removeChild(this);
+    }
+  })
+  const main = document.querySelector('main');
+  main.prepend(alertDiv);
+
+  if (scroll) {
+    window.scrollTo(0,0);
+  }
+}

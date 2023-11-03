@@ -13,8 +13,8 @@ checkoutProcess.calculateOrderTotal();
 const form = document.querySelector("#order-form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const data = checkoutProcess.prepareData(e.target);
-  checkoutProcess.checkout(data);
+  checkoutProcess.prepareData(e.target);
+  // await checkoutProcess.checkout(data);
 });
 
 main();

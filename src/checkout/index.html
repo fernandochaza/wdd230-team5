@@ -78,6 +78,7 @@
               name="cardNumber"
               type="number"
               id="card-number"
+              pattern="^4[0-9]{12}(?:[0-9]{3})?$"
               required
           /></label>
           <label
@@ -98,19 +99,19 @@
         <fieldset class="order-summary">
           <legend>Order Summary</legend>
           <div class="item-subtotal">
-            <p>Item Subtotal&#40;<span id="items-number"></span>&#41;</p>
+            <p>Item Subtotal&#40;<span id="items-number"></span>&#41;:</p>
             <p id="items-subtotal"></p>
           </div>
           <div class="item-subtotal">
-            <p>Shipping Estimate</p>
+            <p>Shipping Estimate:</p>
             <p id="shipping-estimate"></p>
           </div>
           <div class="item-subtotal">
-            <p>Tax</p>
+            <p>Tax:</p>
             <p id="tax-amount"></p>
           </div>
           <div class="item-total">
-            <p>Order Total</p>
+            <p>Order Total:</p>
             <p id="total-amount"></p>
           </div>
         </fieldset>
