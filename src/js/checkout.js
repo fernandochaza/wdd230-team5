@@ -11,10 +11,10 @@ checkoutProcess.init("so-cart", ".order-summary");
 checkoutProcess.calculateOrderTotal();
 
 const form = document.querySelector("#order-form");
-form.addEventListener("submit", async (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const data = checkoutProcess.prepareData(e.target);
-  await checkoutProcess.checkout(data);
+  checkoutProcess.prepareData(e.target);
+  // await checkoutProcess.checkout(data);
 });
 
 main();
