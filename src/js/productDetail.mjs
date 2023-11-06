@@ -3,26 +3,31 @@ import {
   setLocalStorage,
 } from "./utils.mjs";
 import { findProductById } from "./externalServices.mjs";
+import { resolveDuplicate } from "./resolveDuplicateItemsInCart.mjs";
 
 //responsible for all of the functionality needed to lookup data for a specific product and display it in HTML.
-
 // the entrypoint into our module and will make sure that everything happens in the right order. This function should be the default export.
 async function productDetails(productId) {
   const product = await findProductById(productId);
-
   renderProductDetails(product);
 }
 
 function addProductToCart(product) {
   const cartItems = getLocalStorage("so-cart") || [];
+
+  //Push the cart items to the so-cart list first
   cartItems.push(product);
-  setLocalStorage("so-cart", cartItems);
+
+  //Then merge the duplicates into unique items and count the number of duplicates
+  const uniqueList = resolveDuplicate(cartItems);
+
+  //Once all the items are unique, store it in local storage
+  setLocalStorage("so-cart", uniqueList);
 }
 
 // add to cart button event handler
 async function addToCartHandler(e) {
   const product = await findProductById(e.target.dataset.id);
-
   addProductToCart(product);
   window.location.reload();
 }
