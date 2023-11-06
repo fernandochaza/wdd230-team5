@@ -2,7 +2,7 @@ import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
-
+ 
   // Check if cartItems is defined and that the cart contains items
   // before displaying them
   if (cartItems && cartItems.length > 0) {
@@ -12,7 +12,8 @@ function renderCartContents() {
 }
 
 function cartItemTemplate(item, id) {
-  const newItem = `<li class="cart-card divider">
+  const newItem = `
+  <li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
       src="${item.Images.PrimarySmall}"
@@ -23,7 +24,10 @@ function cartItemTemplate(item, id) {
     <h2 class="card__name">${item.Name}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
+  <div class="cart-card__quantity"><span>qty:</span>
+  <span class="material-symbols-outlined dec">remove</span>
+  <input value="${item.Count}" class="input-qty">
+  <span class="material-symbols-outlined inc">add</span></div>
   <p class="cart-card__price">$${item.FinalPrice}</p>
   
 </li>

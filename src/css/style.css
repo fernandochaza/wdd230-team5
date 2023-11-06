@@ -340,3 +340,11 @@ div.cart span {
   color: white;
   width: 25%;
 }
+.input-qty {
+  width: 20%;
+}
+.cart-card__quantity {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+}
