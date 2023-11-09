@@ -5,7 +5,7 @@ export async function convertToJson(res) {
   if (res.ok) {
     return data;
   } else {
-    throw { name: 'servicesError', message: data };
+    throw { name: "servicesError", message: data };
   }
 }
 
@@ -22,4 +22,25 @@ export async function findProductById(id) {
   const product = await convertToJson(response);
 
   return product.Result;
+}
+
+export async function loginRequest(creds) {
+  const URL = baseURL + `login`;
+
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(creds),
+  };
+
+  try {
+    const response = await fetch(URL, options);
+    const data = await response;
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 }

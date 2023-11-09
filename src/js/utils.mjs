@@ -63,21 +63,22 @@ export function renderListWithTemplate(
   parentElement.insertAdjacentHTML(position, htmlString.join(""));
 }
 
-
 function loadTemplate(path) {
   // this is called currying and can be very helpful.
   return async function () {
-      const res = await fetch(path);
-      if (res.ok) {
+    const res = await fetch(path);
+    if (res.ok) {
       const html = await res.text();
       return html;
-      }
+    }
   };
-} 
+}
 
 export function checkEmptyArray(array) {
   if (array.length === 0) {
-    throw new Error ('We\'re sorry, this product is not yet available. Please try again later!');
+    throw new Error(
+      "We're sorry, this product is not yet available. Please try again later!"
+    );
   }
 }
 
@@ -97,19 +98,19 @@ export function calculateDiscount(listPrice, salePrice) {
   return discount;
 }
 
-export function alertMessage(message, scroll=true) {
-  let alertDiv = document.createElement('div');
-  alertDiv.classList.add('alert');
-  alertDiv.innerHTML = `<span>${message} </span><span>X</span></p>`
-  alertDiv.addEventListener('click', function(e) {
-    if (e.target.innerText = 'X') {
+export function alertMessage(message, scroll = true) {
+  let alertDiv = document.createElement("div");
+  alertDiv.classList.add("alert");
+  alertDiv.innerHTML = `<span>${message} </span><span>X</span></p>`;
+  alertDiv.addEventListener("click", function (e) {
+    if ((e.target.innerText = "X")) {
       main.removeChild(this);
     }
-  })
-  const main = document.querySelector('main');
+  });
+  const main = document.querySelector("main");
   main.prepend(alertDiv);
 
   if (scroll) {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 }
