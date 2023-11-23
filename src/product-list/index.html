@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sleep Outside | Home</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <script src="../js/product-list.js" type="module"></script>
-  </head>
-  <body>
-    <header class="divider" id="main-header"></header>
-    <main class="divider">
-      <!-- <div class="hero">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleep Outside | Home</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="../js/product-list.js" type="module"></script>
+</head>
+
+<body>
+  <header class="divider" id="main-header"></header>
+  <main class="divider">
+    <!-- <div class="hero">
         <img
           src="/images/banner-sm.jpg"
           srcset="images/banner-sm.jpg 500w, images/banner.jpg"
@@ -21,7 +23,7 @@
           <div>Sleep<span class="highlight">Outside</span></div>
         </div>
       </div> -->
-      <!-- <section class="mission">
+    <!-- <section class="mission">
         <p>We spend too much time these days indoors...sitting usually.</p>
         <p>No wonder we are a mess!</p>
         <p>
@@ -30,11 +32,18 @@
           comfortably at an affordable price.
         </p>
       </section> -->
-      <section class="products">
-        <h2 id="title">Top Products<span class="category-title"></span></h2>
-        <ul class="product-list"></ul>
+    <section class="products">
+      <h2 id="title">Top Products<span class="category-title"></span></h2>
+      <div id="sortBy">
+        <p><strong>Select base on price:</strong></p>
+        <label><input type="radio" id="above-100" name="price" value="above">Above $100 </label><br>
+        <label><input type="radio" id="below-100" name="price" value="below">Below $100</label><br>
+        <label><input type="radio" id="all" name="price" value="all">All</label>
+      </div>
+      <ul class="product-list"></ul>
       </section>
-    </main>
-    <footer id="main-footer"></footer>
-  </body>
+  </main>
+  <footer id="main-footer"></footer>
+</body>
+
 </html>
