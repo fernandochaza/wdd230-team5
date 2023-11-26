@@ -5,12 +5,12 @@ export function displayCartTotal () {
         const cartItems = getLocalStorage("so-cart");
 
         if (cartItems.length != 0) {
-            let price;
+            let subtotal;
             let total = 0;
  
             cartItems.forEach(item => {
-                price = item.ListPrice;
-                total += price;
+                subtotal = item.ListPrice * item.Count;
+                total += subtotal;
             });
 
             const cartFooter = document.querySelector('#cart-footer');

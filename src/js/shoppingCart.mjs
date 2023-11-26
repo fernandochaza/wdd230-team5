@@ -24,11 +24,11 @@ function cartItemTemplate(item, id) {
     <h2 class="card__name">${item.Name}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <div class="cart-card__quantity"><span>qty:</span>
+  <div class="cart-card__quantity" id="${id}"><span>qty:</span>
   <span class="material-symbols-outlined dec">remove</span>
   <input value="${item.Count}" class="input-qty">
   <span class="material-symbols-outlined inc">add</span></div>
-  <p class="cart-card__price">$${item.FinalPrice}</p>
+  <p class="cart-card__price">$${(item.FinalPrice * item.Count).toFixed(2)}</p>
   
 </li>
 <span class="x-button" id="${id}">X</span>

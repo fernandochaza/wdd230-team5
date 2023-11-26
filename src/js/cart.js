@@ -3,7 +3,7 @@ import cartItemSuperscript from "./superscript";
 import { loadHeaderFooter } from "./utils.mjs";
 import { removeCartItem } from "./removeItemFromCart.mjs";
 import { displayCartTotal } from "./totalInCart.mjs";
-// import {manageQuantity} from "./quantiktyManager.mjs";
+import { manageQuantity } from "./quantityManager.mjs";
 
 main();
 async function main() {
@@ -14,4 +14,4 @@ async function main() {
 renderCartContents();
 removeCartItem();
 displayCartTotal();
-// manageQuantity();
+manageQuantity();
